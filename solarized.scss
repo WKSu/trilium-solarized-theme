@@ -1,0 +1,125 @@
+// See https://ethanschoonover.com/solarized/ for colors.
+// Clean structure from velvet theme https://github.com/idelem/trilium-theme-velvet
+
+$base03: #002b36;
+$base02: #073642;
+$base01: #586e75;
+$base00: #657b83;
+$base0: #839496;
+$base1: #93a1a1;
+$base2: #eee8d5;
+$base3: #fdf6e3;
+$yellow: #b58900;
+$orange: #cb4b16;
+$red: #dc322f;
+$magenta: #d33682;
+$violet: #6c71c4;
+$blue: #268bd2;
+$cyan: #2aa198;
+$green: #859900;
+
+@mixin solarized_common($theme-name, $rebase03, $rebase02, $rebase01, $rebase00, $rebase0, $rebase1, $rebase2, $rebase3) {
+  body.theme-#{$theme-name} {
+    // TODO: not sure why, but just passing $rebase3 etc. does not work, and the
+    // generated CSS will not properly substitute the values of the SASS
+    // variables. #{$rebase3} works. Maybe it's because we're setting CSS
+    // variables here? Just $rebase3 et al. seem to work just fine elsewhere.
+    --main-background-color: #{$rebase3};
+    --menu-background-color: #{$rebase3};
+    --active-item-background-color: #{$rebase3};
+    --input-background-color: #{$rebase3};
+    --primary-button-background-color: #{$blue};
+    --primary-button-text-color: #{$rebase01};
+    --primary-button-border-color: #{$blue};
+    --header-background-color: #{$rebase3};
+    --button-background-color: #{$rebase3};
+    --button-disabled-background-color: #{$rebase1};
+    --button-border-color: transparent;
+    --main-border-color: transparent;
+    --scrollbar-border-color: transparent;
+    --accented-background-color: #{$rebase3};
+    --more-accented-background-color: #{$rebase2};
+    --link-color: #{$blue};
+    --button-text-color: #{$rebase01};
+    --active-item-text-color: #{$rebase01};
+    --hover-item-text-color: #{$rebase01};
+    --hover-item-background-color: #{$rebase2};
+    --input-text-color: #{$rebase01};
+    --muted-text-color: #{$rebase00};
+    --menu-text-color: #{$rebase01};
+    --main-text-color: #{$rebase01};
+    --modal-background-color: #{$rebase3};
+
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 2em;
+      background-color: rgba(0,0,0,0.075);
+    }
+
+    .gutter {
+      background-color: transparent;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 1em 0;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin: 1em 0;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      margin: 1em 0;
+    }
+
+    .ck-content hr {
+      border: none;
+      height: 1px;
+    }
+
+    textarea:focus, input:focus {
+      outline: none;
+    }
+
+    .todo-list__label {
+      margin-bottom: 0;
+    }
+
+    .ck-content {
+      .todo-list .todo-list__label {
+        > input:before {
+          border: 1px solid var(--link-color);
+          border-radius: 2em;
+        }
+        > input[checked]::before {
+          background-color: var(--link-color);
+        }
+      }
+
+      pre {
+        border: none;
+        border-radius: 0;
+        background-color: $rebase2;
+      }
+    }
+
+    .calendar-widget .calendar-date, .calendar-widget .calendar-week span {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .theme-solarized blockquote {
+      color: $rebase00;
+    }
+  }
+}
+
+@include solarized_common('solarized-light', $base03, $base02, $base01, $base00, $base0, $base1, $base2, $base3);
+@include solarized_common('solarized-dark', $base3, $base2, $base1, $base0, $base00, $base01, $base02, $base03);

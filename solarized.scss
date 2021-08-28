@@ -1,6 +1,8 @@
 // See https://ethanschoonover.com/solarized/ for colors.
 // Clean structure from velvet theme https://github.com/idelem/trilium-theme-velvet
 
+@use 'sass:color';
+
 $base03: #002b36;
 $base02: #073642;
 $base01: #586e75;
@@ -20,6 +22,8 @@ $green: #859900;
 
 @mixin solarized_common($theme-name, $rebase03, $rebase02, $rebase01, $rebase00, $rebase0, $rebase1, $rebase2, $rebase3) {
   body.theme-#{$theme-name} {
+    color-profile: sRGB;
+    rendering-intent: auto;
     // TODO: not sure why, but just passing $rebase3 etc. does not work, and the
     // generated CSS will not properly substitute the values of the SASS
     // variables. #{$rebase3} works. Maybe it's because we're setting CSS
@@ -111,8 +115,8 @@ $green: #859900;
     }
 
     .calendar-widget .calendar-date, .calendar-widget .calendar-week span {
-        font-size: 14px;
-        font-weight: 400;
+      font-size: 14px;
+      font-weight: 400;
     }
 
     .theme-solarized blockquote {
@@ -126,6 +130,116 @@ $green: #859900;
     .input-group-text {
       border-color: var(--main-border-color);
     }
+
+    // Solarized theme for CodeMirror, based on
+    // https://github.com/codemirror/CodeMirror/blob/master/theme/solarized.css.
+    .cm-s-default {
+      color-profile: sRGB;
+      rendering-intent: auto;
+      color: $rebase01;
+      background-color: $rebase3;
+      text-shadow: #{$rebase2} 0 1px;
+
+      .CodeMirror-widget {
+        text-shadow: none;
+      }
+      .cm-header { color: $rebase01; }
+      .cm-quote { color: $rebase1; }
+
+      .cm-keyword { color: $orange; }
+      .cm-atom { color: $magenta; }
+      .cm-number { color: $magenta; }
+      .cm-def { color: $cyan; }
+
+      .cm-variable { color: $rebase0; }
+      .cm-variable-2 { color: $yellow; }
+      .cm-variable-3, .cm-type { color: $violet; }
+
+      .cm-property { color: $cyan; }
+      .cm-operator { color: $violet; }
+
+      .cm-comment { color: $rebase01; font-style:italic; }
+
+      .cm-string { color: $green; }
+      .cm-string-2 { color: $yellow; }
+
+      .cm-meta { color: $green; }
+      .cm-qualifier { color: $yellow; }
+      .cm-builtin { color: $magenta; }
+      .cm-bracket { color: $orange; }
+      .CodeMirror-matchingbracket { color: $green; }
+      .CodeMirror-nonmatchingbracket { color: $red; }
+      .cm-tag { color: #{$rebase1}; }
+      .cm-attribute { color: $cyan; }
+      .cm-hr {
+        color: transparent;
+        border-top: 1px solid #{$rebase01};
+        display: block;
+      }
+      .cm-link { color: #{$rebase1}; cursor: pointer; }
+      .cm-special { color: $violet; }
+      .cm-em {
+        color: #{$rebase0};
+        text-decoration: underline;
+        text-decoration-style: dotted;
+      }
+      .cm-error, .cm-invalidchar {
+        color: $rebase01;
+        border-bottom: 1px dotted $red;
+      }
+
+      div.CodeMirror-selected {
+        background: #{$rebase2};
+      }
+      .CodeMirror-line {
+        &::selection, &::-moz-selection,
+	> span::selection, > span::-moz-selection,
+	> span > span::selection, > span > span::-moz-selection {
+          background: #{$rebase2};
+	}
+      }
+
+      /* Editor styling */
+
+      /* Little shadow on the view-port of the buffer view */
+      //.cm-s-default.CodeMirror {
+      //  -moz-box-shadow: inset 7px 0 12px -6px #000;
+      //  -webkit-box-shadow: inset 7px 0 12px -6px #000;
+      //  box-shadow: inset 7px 0 12px -6px #000;
+      //}
+
+      /* Remove gutter border */
+      .CodeMirror-gutters {
+        border-right: 0;
+      }
+
+      /* Gutter colors and line number styling based of color scheme (dark / light) */
+      .CodeMirror-gutters {
+        background-color: $rebase2;
+      }
+
+      .CodeMirror-linenumber {
+        color: $rebase0;
+        padding: 0 5px;
+      }
+
+      .CodeMirror-guttermarker-subtle { color: $rebase01; }
+      .CodeMirror-guttermarker { color: $orange; }
+      .CodeMirror-gutter .CodeMirror-gutter-text { color: $rebase01; }
+
+      /* Cursor */
+      .CodeMirror-cursor { border-left: 1px solid #{$rebase0}; }
+
+      /* Fat cursor */
+      .CodeMirror-cursor { background: $rebase1; }
+      .cm-animate-fat-cursor { background-color: $rebase1; }
+
+      /* Active line */
+      .CodeMirror-activeline-background {
+        background: color.change($rebase03, $alpha: 0.06);
+      }
+    }
+
   }
 }
 

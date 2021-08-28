@@ -1,0 +1,247 @@
+// See https://ethanschoonover.com/solarized/ for colors.
+// Clean structure from velvet theme https://github.com/idelem/trilium-theme-velvet
+
+@use 'sass:color';
+
+$base03: #002b36;
+$base02: #073642;
+$base01: #586e75;
+$base00: #657b83;
+$base0: #839496;
+$base1: #93a1a1;
+$base2: #eee8d5;
+$base3: #fdf6e3;
+$yellow: #b58900;
+$orange: #cb4b16;
+$red: #dc322f;
+$magenta: #d33682;
+$violet: #6c71c4;
+$blue: #268bd2;
+$cyan: #2aa198;
+$green: #859900;
+
+@mixin solarized_common($theme-name, $rebase03, $rebase02, $rebase01, $rebase00, $rebase0, $rebase1, $rebase2, $rebase3) {
+  body.theme-#{$theme-name} {
+    color-profile: sRGB;
+    rendering-intent: auto;
+    // TODO: not sure why, but just passing $rebase3 etc. does not work, and the
+    // generated CSS will not properly substitute the values of the SASS
+    // variables. #{$rebase3} works. Maybe it's because we're setting CSS
+    // variables here? Just $rebase3 et al. seem to work just fine elsewhere.
+    --main-background-color: #{$rebase3};
+    --menu-background-color: #{$rebase3};
+    --active-item-background-color: #{$rebase2};
+    --input-background-color: #{$rebase3};
+    --primary-button-background-color: #{$blue};
+    --primary-button-text-color: #{$rebase01};
+    --primary-button-border-color: #{$blue};
+    --header-background-color: #{$rebase3};
+    --button-background-color: #{$rebase3};
+    --button-disabled-background-color: #{$rebase1};
+    --button-border-color: #{$rebase00};
+    --main-border-color: #{$rebase00};
+    --scrollbar-border-color: transparent;
+    --accented-background-color: #{$rebase3};
+    --more-accented-background-color: #{$rebase2};
+    --link-color: #{$blue};
+    --button-text-color: #{$rebase01};
+    --active-item-text-color: #{$rebase01};
+    --hover-item-text-color: #{$rebase01};
+    --hover-item-background-color: #{$rebase2};
+    --input-text-color: #{$rebase01};
+    --muted-text-color: #{$rebase00};
+    --menu-text-color: #{$rebase01};
+    --main-text-color: #{$rebase01};
+    --modal-background-color: #{$rebase3};
+
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 2em;
+      background-color: rgba(0,0,0,0.075);
+    }
+
+    .gutter {
+      background-color: transparent;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 1em 0;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin: 1em 0;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      margin: 1em 0;
+    }
+
+    .ck-content hr {
+      border: none;
+      height: 1px;
+    }
+
+    textarea:focus, input:focus {
+      outline: none;
+    }
+
+    .todo-list__label {
+      margin-bottom: 0;
+    }
+
+    .ck-content {
+      .todo-list .todo-list__label {
+        > input:before {
+          border: 1px solid var(--link-color);
+          border-radius: 2em;
+        }
+        > input[checked]::before {
+          background-color: var(--link-color);
+        }
+      }
+
+      pre {
+        border: none;
+        border-radius: 0;
+        background-color: $rebase2;
+      }
+    }
+
+    .calendar-widget .calendar-date, .calendar-widget .calendar-week span {
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .theme-solarized blockquote {
+      color: $rebase00;
+    }
+
+    // For "Quick search" box's border.
+    .form-control {
+      border-color: var(--main-border-color);
+    }
+    .input-group-text {
+      border-color: var(--main-border-color);
+    }
+
+    // Solarized theme for CodeMirror, based on
+    // https://github.com/codemirror/CodeMirror/blob/master/theme/solarized.css.
+    .cm-s-default {
+      color-profile: sRGB;
+      rendering-intent: auto;
+      color: $rebase01;
+      background-color: $rebase3;
+      text-shadow: #{$rebase2} 0 1px;
+
+      .CodeMirror-widget {
+        text-shadow: none;
+      }
+      .cm-header { color: $rebase01; }
+      .cm-quote { color: $rebase1; }
+
+      .cm-keyword { color: $orange; }
+      .cm-atom { color: $magenta; }
+      .cm-number { color: $magenta; }
+      .cm-def { color: $cyan; }
+
+      .cm-variable { color: $rebase0; }
+      .cm-variable-2 { color: $yellow; }
+      .cm-variable-3, .cm-type { color: $violet; }
+
+      .cm-property { color: $cyan; }
+      .cm-operator { color: $violet; }
+
+      .cm-comment { color: $rebase01; font-style:italic; }
+
+      .cm-string { color: $green; }
+      .cm-string-2 { color: $yellow; }
+
+      .cm-meta { color: $green; }
+      .cm-qualifier { color: $yellow; }
+      .cm-builtin { color: $magenta; }
+      .cm-bracket { color: $orange; }
+      .CodeMirror-matchingbracket { color: $green; }
+      .CodeMirror-nonmatchingbracket { color: $red; }
+      .cm-tag { color: #{$rebase1}; }
+      .cm-attribute { color: $cyan; }
+      .cm-hr {
+        color: transparent;
+        border-top: 1px solid #{$rebase01};
+        display: block;
+      }
+      .cm-link { color: #{$rebase1}; cursor: pointer; }
+      .cm-special { color: $violet; }
+      .cm-em {
+        color: #{$rebase0};
+        text-decoration: underline;
+        text-decoration-style: dotted;
+      }
+      .cm-error, .cm-invalidchar {
+        color: $rebase01;
+        border-bottom: 1px dotted $red;
+      }
+
+      div.CodeMirror-selected {
+        background: #{$rebase2};
+      }
+      .CodeMirror-line {
+        &::selection, &::-moz-selection,
+	> span::selection, > span::-moz-selection,
+	> span > span::selection, > span > span::-moz-selection {
+          background: #{$rebase2};
+	}
+      }
+
+      /* Editor styling */
+
+      /* Little shadow on the view-port of the buffer view */
+      //.cm-s-default.CodeMirror {
+      //  -moz-box-shadow: inset 7px 0 12px -6px #000;
+      //  -webkit-box-shadow: inset 7px 0 12px -6px #000;
+      //  box-shadow: inset 7px 0 12px -6px #000;
+      //}
+
+      /* Remove gutter border */
+      .CodeMirror-gutters {
+        border-right: 0;
+      }
+
+      /* Gutter colors and line number styling based of color scheme (dark / light) */
+      .CodeMirror-gutters {
+        background-color: $rebase2;
+      }
+
+      .CodeMirror-linenumber {
+        color: $rebase0;
+        padding: 0 5px;
+      }
+
+      .CodeMirror-guttermarker-subtle { color: $rebase01; }
+      .CodeMirror-guttermarker { color: $orange; }
+      .CodeMirror-gutter .CodeMirror-gutter-text { color: $rebase01; }
+
+      /* Cursor */
+      .CodeMirror-cursor { border-left: 1px solid #{$rebase0}; }
+
+      /* Fat cursor */
+      .CodeMirror-cursor { background: $rebase1; }
+      .cm-animate-fat-cursor { background-color: $rebase1; }
+
+      /* Active line */
+      .CodeMirror-activeline-background {
+        background: color.change($rebase03, $alpha: 0.06);
+      }
+    }
+
+  }
+}
+
+@include solarized_common('solarized-light', $base03, $base02, $base01, $base00, $base0, $base1, $base2, $base3);
+@include solarized_common('solarized-dark', $base3, $base2, $base1, $base0, $base00, $base01, $base02, $base03);

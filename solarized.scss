@@ -26,7 +26,7 @@ $green: #859900;
     // variables here? Just $rebase3 et al. seem to work just fine elsewhere.
     --main-background-color: #{$rebase3};
     --menu-background-color: #{$rebase3};
-    --active-item-background-color: #{$rebase3};
+    --active-item-background-color: #{$rebase2};
     --input-background-color: #{$rebase3};
     --primary-button-background-color: #{$blue};
     --primary-button-text-color: #{$rebase01};
@@ -34,8 +34,8 @@ $green: #859900;
     --header-background-color: #{$rebase3};
     --button-background-color: #{$rebase3};
     --button-disabled-background-color: #{$rebase1};
-    --button-border-color: transparent;
-    --main-border-color: transparent;
+    --button-border-color: #{$rebase00};
+    --main-border-color: #{$rebase00};
     --scrollbar-border-color: transparent;
     --accented-background-color: #{$rebase3};
     --more-accented-background-color: #{$rebase2};
@@ -117,6 +117,14 @@ $green: #859900;
 
     .theme-solarized blockquote {
       color: $rebase00;
+    }
+
+    // For "Quick search" box's border.
+    .form-control {
+      border-color: var(--main-border-color);
+    }
+    .input-group-text {
+      border-color: var(--main-border-color);
     }
   }
 }

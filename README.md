@@ -5,9 +5,25 @@ A [solarized](https://ethanschoonover.com/solarized/) theme for the notetaking a
 
 
 ## Installation
-- Copy the contents of the solarized-theme.css file into a Trilium note.
+- Copy the contents of the `solarized.css` file into a Trilium note.
 - Change the type of the note to CSS.
-- Add the label #appTheme=solarized 
+- Add the label `#appTheme=solarized-light` (or `dark`)
 - Go to options and select this theme 🥳
 
+## Known issues
 
+* Solarized Dark does not play well with CodeMirror.
+
+## Updating the repo
+
+Install sass:
+
+```bash
+sudo npm install -g sass
+```
+
+After changes, rebuild `solarized.css`:
+
+```bash
+sass solarized.scss solarized.css
+```

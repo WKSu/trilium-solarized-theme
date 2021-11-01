@@ -23,5 +23,5 @@ sudo npm install -g sass
 After changes, rebuild `solarized.css`:
 
 ```bash
-sass solarized.scss solarized.css
+sass --no-source-map solarized.scss solarized.css
 ```

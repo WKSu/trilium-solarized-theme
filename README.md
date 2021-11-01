@@ -7,7 +7,7 @@ A [solarized](https://ethanschoonover.com/solarized/) theme for the notetaking a
 ## Installation
 - Copy the contents of the `solarized.css` file into a Trilium note.
 - Change the type of the note to CSS.
-- Add the label `#appTheme=solarized`
+- Add the label `#appTheme=solarized-light` (or `dark`)
 - Go to options and select this theme 🥳
 
 `solarized.css` applies either the dark or light theme based on a media query.

@@ -1,5 +1,4 @@
 // See https://ethanschoonover.com/solarized/ for colors.
-// Clean structure from velvet theme https://github.com/idelem/trilium-theme-velvet
 
 @use 'sass:color';
 
@@ -20,39 +19,74 @@ $blue: #268bd2;
 $cyan: #2aa198;
 $green: #859900;
 
-@mixin solarized_common($theme-name, $rebase03, $rebase02, $rebase01, $rebase00, $rebase0, $rebase1, $rebase2, $rebase3) {
-  body.theme-#{$theme-name} {
+@mixin solarized_common($rebase03, $rebase02, $rebase01, $rebase00, $rebase0, $rebase1, $rebase2, $rebase3, $themeStyle, $mermaidTheme) {
+  body {
     color-profile: sRGB;
     rendering-intent: auto;
+    // Variables follow order in
+    // https://github.com/zadam/trilium/blob/master/src/public/stylesheets/theme-light.css.
+    // Updated on 2021-11-01 to Trilium commit 7e4122654.
+
+    --theme-style: #{$themeStyle};
+
     // TODO: not sure why, but just passing $rebase3 etc. does not work, and the
     // generated CSS will not properly substitute the values of the SASS
     // variables. #{$rebase3} works. Maybe it's because we're setting CSS
     // variables here? Just $rebase3 et al. seem to work just fine elsewhere.
     --main-background-color: #{$rebase3};
-    --menu-background-color: #{$rebase3};
-    --active-item-background-color: #{$rebase2};
-    --input-background-color: #{$rebase3};
-    --primary-button-background-color: #{$blue};
-    --primary-button-text-color: #{$rebase01};
-    --primary-button-border-color: #{$blue};
-    --header-background-color: #{$rebase3};
-    --button-background-color: #{$rebase3};
+    --main-text-color: #{$rebase01};
+    --main-border-color: #{$rebase00};
+
+    --accented-background-color: #{$rebase2};
+    --more-accented-background-color: #{$rebase1};
+
+    --button-background-color: transparent;
     --button-disabled-background-color: #{$rebase1};
     --button-border-color: #{$rebase00};
-    --main-border-color: #{$rebase00};
-    --scrollbar-border-color: transparent;
-    --accented-background-color: #{$rebase3};
-    --more-accented-background-color: #{$rebase2};
-    --link-color: #{$blue};
     --button-text-color: #{$rebase01};
-    --active-item-text-color: #{$rebase01};
+
+    --primary-button-background-color: #{$blue};
+    --primary-button-text-color: #{$rebase01};
+    --primary-button-border-color: #{$rebase00};
+
+    --muted-text-color: #{$rebase00};
+
+    --input-text-color: #{$rebase01};
+    --input-background-color: #{$rebase3};
+
     --hover-item-text-color: #{$rebase01};
     --hover-item-background-color: #{$rebase2};
-    --input-text-color: #{$rebase01};
-    --muted-text-color: #{$rebase00};
+
+    --active-item-background-color: #{$rebase1};
+    --active-item-text-color: #{$rebase01};
+
     --menu-text-color: #{$rebase01};
-    --main-text-color: #{$rebase01};
-    --modal-background-color: #{$rebase3};
+    --menu-background-color: #{$rebase3};
+
+    --modal-background-color: #{$rebase2};
+    --modal-text-color: #{$rebase00};
+
+    --left-pane-background-color: #{$rebase2};
+    --left-pane-text-color: #{$rebase00};
+
+    --launcher-pane-background-color: #{$rebase2};
+    --launcher-pane-text-color: #{$rebase00};
+
+    --active-tab-background-color: #{$rebase2};
+    --active-tab-text-color: #{$rebase01};
+
+    --inactive-tab-background-color: #{$rebase3};
+    --inactive-tab-text-color: #{$rebase03};
+
+    --scrollbar-border-color: transparent;
+    --tooltip-background-color: #{$rebase3};
+    --link-color: #{$blue};
+
+    --mermaid-theme: #{$mermaidTheme};
+
+    ::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+    }
 
     ::-webkit-scrollbar {
       width: 6px;
@@ -61,7 +95,7 @@ $green: #859900;
 
     ::-webkit-scrollbar-thumb {
       border-radius: 2em;
-      background-color: rgba(0,0,0,0.075);
+      background: color.change($rebase03, $alpha: 0.075);
     }
 
     .gutter {
@@ -119,7 +153,7 @@ $green: #859900;
       font-weight: 400;
     }
 
-    .theme-solarized blockquote {
+    blockquote {
       color: $rebase00;
     }
 
@@ -199,21 +233,21 @@ $green: #859900;
 	}
       }
 
-      /* Editor styling */
+      // Editor styling
 
-      /* Little shadow on the view-port of the buffer view */
+      // Little shadow on the view-port of the buffer view
       //.cm-s-default.CodeMirror {
       //  -moz-box-shadow: inset 7px 0 12px -6px #000;
       //  -webkit-box-shadow: inset 7px 0 12px -6px #000;
       //  box-shadow: inset 7px 0 12px -6px #000;
       //}
 
-      /* Remove gutter border */
+      // Remove gutter border
       .CodeMirror-gutters {
         border-right: 0;
       }
 
-      /* Gutter colors and line number styling based of color scheme (dark / light) */
+      // Gutter colors and line number styling based of color scheme (dark / light)
       .CodeMirror-gutters {
         background-color: $rebase2;
       }
@@ -227,14 +261,14 @@ $green: #859900;
       .CodeMirror-guttermarker { color: $orange; }
       .CodeMirror-gutter .CodeMirror-gutter-text { color: $rebase01; }
 
-      /* Cursor */
+      // Cursor
       .CodeMirror-cursor { border-left: 1px solid #{$rebase0}; }
 
-      /* Fat cursor */
+      // Fat cursor
       .CodeMirror-cursor { background: $rebase1; }
       .cm-animate-fat-cursor { background-color: $rebase1; }
 
-      /* Active line */
+      // Active line
       .CodeMirror-activeline-background {
         background: color.change($rebase03, $alpha: 0.06);
       }
@@ -243,5 +277,16 @@ $green: #859900;
   }
 }
 
-@include solarized_common('solarized-light', $base03, $base02, $base01, $base00, $base0, $base1, $base2, $base3);
-@include solarized_common('solarized-dark', $base3, $base2, $base1, $base0, $base00, $base01, $base02, $base03);
+// Solarized Light by default.
+@include solarized_common(
+  $base03, $base02, $base01, $base00, $base0, $base1, $base2, $base3,
+  $themeStyle: "light",
+  $mermaidTheme: "default");
+
+// Solarized Dark if browser detects dark theme preference.
+@media (prefers-color-scheme: dark) {
+  @include solarized_common(
+    $base3, $base2, $base1, $base0, $base00, $base01, $base02, $base03,
+    $themeStyle: "dark",
+    $mermaidTheme: "dark");
+}

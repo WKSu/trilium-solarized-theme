@@ -1,0 +1,256 @@
+body {
+  color-profile: sRGB;
+  rendering-intent: auto;
+  --theme-style: light;
+  --main-background-color: #fdf6e3;
+  --main-text-color: #586e75;
+  --main-border-color: #657b83;
+  --accented-background-color: #eee8d5;
+  --more-accented-background-color: #93a1a1;
+  --button-background-color: transparent;
+  --button-disabled-background-color: #93a1a1;
+  --button-border-color: #657b83;
+  --button-text-color: #586e75;
+  --primary-button-background-color: #268bd2;
+  --primary-button-text-color: #586e75;
+  --primary-button-border-color: #657b83;
+  --muted-text-color: #657b83;
+  --input-text-color: #586e75;
+  --input-background-color: #fdf6e3;
+  --hover-item-text-color: #586e75;
+  --hover-item-background-color: #eee8d5;
+  --active-item-background-color: #93a1a1;
+  --active-item-text-color: #586e75;
+  --menu-text-color: #586e75;
+  --menu-background-color: #fdf6e3;
+  --modal-background-color: #eee8d5;
+  --modal-text-color: #657b83;
+  --left-pane-background-color: #eee8d5;
+  --left-pane-text-color: #657b83;
+  --launcher-pane-background-color: #eee8d5;
+  --launcher-pane-text-color: #657b83;
+  --active-tab-background-color: #eee8d5;
+  --active-tab-text-color: #586e75;
+  --inactive-tab-background-color: #fdf6e3;
+  --inactive-tab-text-color: #002b36;
+  --scrollbar-border-color: transparent;
+  --tooltip-background-color: #fdf6e3;
+  --link-color: #268bd2;
+  --mermaid-theme: default;
+}
+body ::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+body ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+body ::-webkit-scrollbar-thumb {
+  border-radius: 2em;
+  background: rgba(0, 43, 54, 0.075);
+}
+body .gutter {
+  background-color: transparent;
+}
+body h1 {
+  font-size: 2.5rem;
+  margin: 1em 0;
+}
+body h2 {
+  font-size: 2.2rem;
+  margin: 1em 0;
+}
+body h3 {
+  font-size: 1.8rem;
+  margin: 1em 0;
+}
+body .modal-header {
+  border-bottom-color: #93a1a1;
+}
+body .nav-tabs {
+  border-bottom-color: #93a1a1;
+}
+body .nav-tabs .nav-link.active, body .nav-tabs .nav-link:hover, body .nav-tabs .nav-link:focus {
+  border-top-color: #93a1a1;
+  border-right-color: #93a1a1;
+  border-bottom-color: #93a1a1;
+  border-left-color: #93a1a1;
+}
+body .nav-tabs .nav-item.show .nav-link {
+  border-top-color: #93a1a1;
+  border-right-color: #93a1a1;
+  border-bottom-color: #93a1a1;
+  border-left-color: #93a1a1;
+}
+body .ck-content hr {
+  border: none;
+  height: 1px;
+}
+body textarea:focus, body input:focus {
+  outline: none;
+}
+body .todo-list__label {
+  margin-bottom: 0;
+}
+body .ck-content .todo-list .todo-list__label > input:before {
+  border: 1px solid var(--link-color);
+  border-radius: 2em;
+}
+body .ck-content .todo-list .todo-list__label > input[checked]::before {
+  background-color: var(--link-color);
+}
+body .ck-content pre {
+  border: none;
+  border-radius: 0;
+  background-color: #eee8d5;
+}
+body .calendar-widget .calendar-date, body .calendar-widget .calendar-week span {
+  font-size: 14px;
+  font-weight: 400;
+}
+body blockquote {
+  color: #657b83;
+}
+body .form-control {
+  border-color: var(--main-border-color);
+}
+body .input-group-text {
+  border-color: var(--main-border-color);
+}
+body .cm-s-default {
+  color-profile: sRGB;
+  rendering-intent: auto;
+  color: #586e75;
+  background-color: #fdf6e3;
+  text-shadow: #eee8d5 0 1px;
+}
+body .cm-s-default .CodeMirror-widget {
+  text-shadow: none;
+}
+body .cm-s-default .cm-header {
+  color: #586e75;
+}
+body .cm-s-default .cm-quote {
+  color: #93a1a1;
+}
+body .cm-s-default .cm-keyword {
+  color: #cb4b16;
+}
+body .cm-s-default .cm-atom {
+  color: #d33682;
+}
+body .cm-s-default .cm-number {
+  color: #d33682;
+}
+body .cm-s-default .cm-def {
+  color: #2aa198;
+}
+body .cm-s-default .cm-variable {
+  color: #839496;
+}
+body .cm-s-default .cm-variable-2 {
+  color: #b58900;
+}
+body .cm-s-default .cm-variable-3, body .cm-s-default .cm-type {
+  color: #6c71c4;
+}
+body .cm-s-default .cm-property {
+  color: #2aa198;
+}
+body .cm-s-default .cm-operator {
+  color: #6c71c4;
+}
+body .cm-s-default .cm-comment {
+  color: #586e75;
+  font-style: italic;
+}
+body .cm-s-default .cm-string {
+  color: #859900;
+}
+body .cm-s-default .cm-string-2 {
+  color: #b58900;
+}
+body .cm-s-default .cm-meta {
+  color: #859900;
+}
+body .cm-s-default .cm-qualifier {
+  color: #b58900;
+}
+body .cm-s-default .cm-builtin {
+  color: #d33682;
+}
+body .cm-s-default .cm-bracket {
+  color: #cb4b16;
+}
+body .cm-s-default .CodeMirror-matchingbracket {
+  color: #859900;
+}
+body .cm-s-default .CodeMirror-nonmatchingbracket {
+  color: #dc322f;
+}
+body .cm-s-default .cm-tag {
+  color: #93a1a1;
+}
+body .cm-s-default .cm-attribute {
+  color: #2aa198;
+}
+body .cm-s-default .cm-hr {
+  color: transparent;
+  border-top: 1px solid #586e75;
+  display: block;
+}
+body .cm-s-default .cm-link {
+  color: #93a1a1;
+  cursor: pointer;
+}
+body .cm-s-default .cm-special {
+  color: #6c71c4;
+}
+body .cm-s-default .cm-em {
+  color: #839496;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+body .cm-s-default .cm-error, body .cm-s-default .cm-invalidchar {
+  color: #586e75;
+  border-bottom: 1px dotted #dc322f;
+}
+body .cm-s-default div.CodeMirror-selected {
+  background: #eee8d5;
+}
+body .cm-s-default .CodeMirror-line::selection, body .cm-s-default .CodeMirror-line::-moz-selection,
+body .cm-s-default .CodeMirror-line > span::selection, body .cm-s-default .CodeMirror-line > span::-moz-selection,
+body .cm-s-default .CodeMirror-line > span > span::selection, body .cm-s-default .CodeMirror-line > span > span::-moz-selection {
+  background: #eee8d5;
+}
+body .cm-s-default .CodeMirror-gutters {
+  border-right: 0;
+}
+body .cm-s-default .CodeMirror-gutters {
+  background-color: #eee8d5;
+}
+body .cm-s-default .CodeMirror-linenumber {
+  color: #839496;
+  padding: 0 5px;
+}
+body .cm-s-default .CodeMirror-guttermarker-subtle {
+  color: #586e75;
+}
+body .cm-s-default .CodeMirror-guttermarker {
+  color: #cb4b16;
+}
+body .cm-s-default .CodeMirror-gutter .CodeMirror-gutter-text {
+  color: #586e75;
+}
+body .cm-s-default .CodeMirror-cursor {
+  border-left: 1px solid #839496;
+}
+body .cm-s-default .CodeMirror-cursor {
+  background: #93a1a1;
+}
+body .cm-s-default .cm-animate-fat-cursor {
+  background-color: #93a1a1;
+}
+body .cm-s-default .CodeMirror-activeline-background {
+  background: rgba(0, 43, 54, 0.06);
+}

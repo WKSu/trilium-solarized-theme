@@ -1,7 +1,7 @@
 # Trilium Solarized Theme
 A [solarized](https://ethanschoonover.com/solarized/) theme for the notetaking app [Trilium](https://github.com/zadam/trilium).
 
-![image](https://user-images.githubusercontent.com/49348667/139704221-5f90f145-a272-4b34-9f8e-be2d41e30630.png)
+![image](https://user-images.githubusercontent.com/49348667/139704397-ce87e550-3011-43ee-9635-6faff85fdfa0.png)
 
 
 ## Installation

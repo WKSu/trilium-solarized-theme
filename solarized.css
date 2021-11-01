@@ -64,6 +64,24 @@ body h3 {
   font-size: 1.8rem;
   margin: 1em 0;
 }
+body .modal-header {
+  border-bottom-color: #93a1a1;
+}
+body .nav-tabs {
+  border-bottom-color: #93a1a1;
+}
+body .nav-tabs .nav-link.active, body .nav-tabs .nav-link:hover, body .nav-tabs .nav-link:focus {
+  border-top-color: #93a1a1;
+  border-right-color: #93a1a1;
+  border-bottom-color: #93a1a1;
+  border-left-color: #93a1a1;
+}
+body .nav-tabs .nav-item.show .nav-link {
+  border-top-color: #93a1a1;
+  border-right-color: #93a1a1;
+  border-bottom-color: #93a1a1;
+  border-left-color: #93a1a1;
+}
 body .ck-content hr {
   border: none;
   height: 1px;
@@ -303,6 +321,24 @@ body .cm-s-default .CodeMirror-activeline-background {
   body h3 {
     font-size: 1.8rem;
     margin: 1em 0;
+  }
+  body .modal-header {
+    border-bottom-color: #586e75;
+  }
+  body .nav-tabs {
+    border-bottom-color: #586e75;
+  }
+  body .nav-tabs .nav-link.active, body .nav-tabs .nav-link:hover, body .nav-tabs .nav-link:focus {
+    border-top-color: #586e75;
+    border-right-color: #586e75;
+    border-bottom-color: #586e75;
+    border-left-color: #586e75;
+  }
+  body .nav-tabs .nav-item.show .nav-link {
+    border-top-color: #586e75;
+    border-right-color: #586e75;
+    border-bottom-color: #586e75;
+    border-left-color: #586e75;
   }
   body .ck-content hr {
     border: none;

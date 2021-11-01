@@ -117,6 +117,31 @@ $green: #859900;
       margin: 1em 0;
     }
 
+    .modal-header {
+      border-bottom-color: #{$rebase1};
+    }
+
+    // Border colors in tabbed panes, e.g. Trilium options dialog.
+    .nav-tabs {
+      border-bottom-color: #{$rebase1};
+    }
+
+    .nav-tabs .nav-link {
+      &.active, &:hover, &:focus {
+        border-top-color: #{$rebase1};
+        border-right-color: #{$rebase1};
+        border-bottom-color: #{$rebase1};
+        border-left-color: #{$rebase1};
+      }
+    }
+
+    .nav-tabs .nav-item.show .nav-link {
+      border-top-color: #{$rebase1};
+      border-right-color: #{$rebase1};
+      border-bottom-color: #{$rebase1};
+      border-left-color: #{$rebase1};
+    }
+
     .ck-content hr {
       border: none;
       height: 1px;
